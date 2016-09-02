@@ -5,11 +5,14 @@ import java.util.Iterator;
 import java.util.Set;
 
 import excecoes.StringInvalidaException;
+import jogo.Jogabilidade;
 import jogo.Jogo;
 
 public abstract class Usuario {
 
 	public static final String FIM_DE_LINHA = System.lineSeparator();
+	
+	protected Jogabilidade jogabilidades;
 
 	private String nome;
 	private String login;
@@ -31,14 +34,14 @@ public abstract class Usuario {
 		meusJogos = new HashSet<Jogo>();
 		this.credito = 0;
 	}
-
+	
 	public abstract void compraJogo(Jogo jogo) throws Exception;
 
-	public void setXp2(int novoValor) {
+	public void setX2p(int novoValor) {
 		this.xp2 = novoValor;
 	}
 
-	public int getXp2() {
+	public int getX2p() {
 		return this.xp2;
 	}
 
@@ -70,13 +73,10 @@ public abstract class Usuario {
 		return this.credito;
 	}
 
-	public void registradaJogada(String nomeJogo, int score, boolean venceu) throws Exception {
-		Jogo jogo = this.buscaJogo(nomeJogo);
-		if (jogo == null) {
-			throw new Exception();
-		}
-		setXp2(getXp2() + jogo.registraJogada(score, venceu));
-	}
+	public abstract void recompensar(String nomeJogo,int scoreObtido,boolean zerou);
+	
+	public abstract void punir(String nomeJogo, int scoreObtido, boolean zerou);
+	
 
 	public Jogo buscaJogo(String nomeJogo) {
 		Jogo buscado = null;

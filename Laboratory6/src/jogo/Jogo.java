@@ -84,6 +84,14 @@ public abstract class Jogo {
 	public void setVezesJogadas(int novaQuantidade) {
 		this.vezesJogadas = novaQuantidade;
 	}
+	
+	public void adicionaJogabilidade(Jogabilidade jogabilidade){
+		jogabilidades.add(jogabilidade);
+	}
+	
+	public Set<Jogabilidade> getJogabilidades(){
+		return this.jogabilidades;
+	}
 
 	@Override
 	public String toString() {

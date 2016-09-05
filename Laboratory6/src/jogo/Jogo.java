@@ -1,3 +1,5 @@
+// 115211093 - Agnaldo Souto Xavier Junior: Lab 7 - Turma 1 
+
 package jogo;
 
 import java.util.HashSet;
@@ -5,8 +7,16 @@ import java.util.Set;
 
 import excecoes.PrecoInvalidoException;
 import excecoes.StringInvalidaException;
+import excecoes.ValorInvalidoException;
+
+/**
+ * 
+ * @author Agnaldo Souto Xavier Junior
+ *
+ */
 
 public abstract class Jogo {
+	
 	public static final String FIM_DE_LINHA = System.lineSeparator();
 
 	private String nome;
@@ -15,6 +25,18 @@ public abstract class Jogo {
 	private int vezesConcluidas;
 	private int maiorScore;
 	Set<Jogabilidade> jogabilidades;
+	
+	/**
+	 * Método responsável pela criação do jogo, com nome e preco.
+	 * @param nome
+	 * Nome do jogo.
+	 * @param preco
+	 * Preco do jogo.
+	 * @throws StringInvalidaException
+	 * Lança exception para caso o nome do jogo seja nulo ou vazio.
+	 * @throws PrecoInvalidoException
+	 * Lança exception para caso o preço do jogo ser menor do que zero.
+	 */
 
 	public Jogo(String nome, double preco) throws StringInvalidaException, PrecoInvalidoException {
 
@@ -32,6 +54,20 @@ public abstract class Jogo {
 		this.maiorScore = 0;
 		jogabilidades = new HashSet<Jogabilidade>();
 	}
+	
+	/**
+	 * Método responsável pea criação do jogo, com nome, preco, e um conjunto de jogabilidade(s).
+	 * @param nome
+	 * Nome do jogo.
+	 * @param preco
+	 * Preco do jogo.
+	 * @param jogabilidades
+	 * Conjunto com as jogabilidades do jogo.
+	 * @throws StringInvalidaException
+	 * Lança exception para caso o nome do jogo seja nulo ou vazio.
+	 * @throws PrecoInvalidoException
+	 * Lança exception para caso o preço do jogo ser menor do que zero.
+	 */
 
 	public Jogo(String nome, double preco, Set<Jogabilidade> jogabilidades)
 			throws StringInvalidaException, PrecoInvalidoException {
@@ -51,7 +87,7 @@ public abstract class Jogo {
 		this.jogabilidades = jogabilidades;
 	}
 
-	public abstract int registraJogada(int score, boolean venceu);
+	public abstract int registraJogada(int score, boolean venceu) throws ValorInvalidoException;
 
 	public double getPreco() {
 		return this.preco;

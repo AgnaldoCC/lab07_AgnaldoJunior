@@ -1,7 +1,7 @@
+// 115211093 - Agnaldo Souto Xavier Junior: Lab 7 - Turma 1
+
 package loja;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Set;
 
 import excecoes.PrecoInvalidoException;
@@ -11,6 +11,12 @@ import jogo.Jogo;
 import jogo.Luta;
 import jogo.Plataforma;
 import jogo.Rpg;
+
+/**
+ * 
+ * @author Agnaldo Souto Xavier Junior
+ *
+ */
 
 public class FactoryJogo {
 
